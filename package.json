@@ -13,7 +13,7 @@
       "clean": "npm run clean:program-c && npm run clean:program-rust",
       "build:program": "cargo build-bpf --manifest-path=./Cargo.toml --bpf-out-dir=dist/program",
       "clean:program": "cargo clean --manifest-path=./Cargo.toml && rm -rf ./dist",
-      "test:program": "cargo test-bpf --manifest-path=./Cargo.toml",
+      "test:program": "cargo test-bpf --manifest-path=./Cargo.toml"
     }
   }
   
