@@ -1,0 +1,19 @@
+{
+    "name": "fram_fund_program",
+    "version": "0.1.0",
+    "description": "",
+    "repository": {
+      "type": "git"
+    },
+    "keywords": [],
+    "author": "Shabaz Ahmed",
+    "license": "MIT",
+    "scripts": {
+      "start-with-test-validator": "start-server-and-test 'solana-test-validator --reset --quiet' http://localhost:8899/health start",
+      "clean": "npm run clean:program-c && npm run clean:program-rust",
+      "build:program": "cargo build-bpf --manifest-path=./Cargo.toml --bpf-out-dir=dist/program",
+      "clean:program": "cargo clean --manifest-path=./Cargo.toml && rm -rf ./dist",
+      "test:program": "cargo test-bpf --manifest-path=./Cargo.toml",
+    }
+  }
+  

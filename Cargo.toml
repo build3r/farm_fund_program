@@ -1,0 +1,23 @@
+[package]
+name = "farm-fund"
+version = "0.1.0"
+description = "Crowd funding Platform for Farming"
+authors = ["Shabaz Ahmed <shabaz1729@gmail.com>"]
+edition = "2018"
+
+[features]
+no-entrypoint = []
+test-bpf = []
+
+[dependencies]
+borsh = "0.9.1"
+borsh-derive = "0.9.1"
+solana-program = "1.7.9"
+
+[dev-dependencies]
+solana-program-test = "1.7.9"
+solana-sdk = "1.7.9"
+
+[lib]
+name = "farm_fund"
+crate-type = ["cdylib", "lib"]
