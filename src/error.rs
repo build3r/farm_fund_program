@@ -1,51 +1,25 @@
-/* //! Error types
+use thiserror::Error;
 
-use {
-    num_derive::FromPrimitive,
-    solana_program::{decode_error::DecodeError, program_error::ProgramError},
-    thiserror::Error,
-};
+use solana_program::program_error::ProgramError;
 
-/// Errors that may be returned by the program.
-#[derive(Clone, Debug, Eq, Error, FromPrimitive, PartialEq)]
-pub enum SolariumError {
-    /// Incorrect authority provided
-    #[error("Incorrect authority provided")]
-    IncorrectAuthority,
-
-    /// Calculation overflow
-    #[error("Calculation overflow")]
-    Overflow,
-
-    /// Missing CEK
-    #[error("CEK not found")]
-    CEKNotFound,
-
-    /// Invalid CEK for this channel
-    #[error("CEK not valid for this channel")]
-    CEKIncorrectChannel,
-
-    /// Attempt to create a channel for an address that is already in use
-    #[error("Attempt to create a channel for an address that is already in use")]
-    AlreadyInUse,
-
-    /// Incorrect account address derivation
-    #[error("Incorrect account address derivation")]
-    AddressDerivationMismatch,
+#[derive(Error, Debug, Copy, Clone)]
+pub enum FarmFundError {
+    /// Invalid instruction
+    #[error("Invalid Instruction")]
+    InvalidInstruction,
+    /// Not Rent Exempt
+    #[error("Not Rent Exempt")]
+    NotRentExempt,
+    /// Expected Amount Mismatch
+    #[error("Expected Amount Mismatch")]
+    ExpectedAmountMismatch,
+    /// Amount Overflow
+    #[error("Amount Overflow")]
+    AmountOverflow,
 }
-impl From<SolariumError> for ProgramError {
-    fn from(e: SolariumError) -> Self {
+
+impl From<FarmFundError> for ProgramError {
+    fn from(e: FarmFundError) -> Self {
         ProgramError::Custom(e as u32)
     }
 }
-// impl From<ParsePubkeyError> for SolariumError {
-//     fn from(_e: ParsePubkeyError) -> Self {
-//         SolError::InvalidString
-//     }
-// }
-impl<T> DecodeError<T> for SolariumError {
-    fn type_of() -> &'static str {
-        "Solarium Error"
-    }
-}
- */

@@ -11,3 +11,9 @@ tests/functional.rs
 tests/solarium_context.rs
 tests/fixtures/sol_did.so
 dist/program/farm_fund.so
+test_acc/ahmed_wallet.json
+test_acc/farmer_dassappa_wallet.json
+test_acc/farmer_john_wallet.json
+test_acc/ravi_wallet.json
+test_acc/test_1_wallet.json
+consts.t
