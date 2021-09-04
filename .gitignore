@@ -17,3 +17,4 @@ test_acc/farmer_john_wallet.json
 test_acc/ravi_wallet.json
 test_acc/test_1_wallet.json
 consts.t
+dist/program/farm_fund.so
